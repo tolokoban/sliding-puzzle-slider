@@ -10,6 +10,7 @@ We will then provide the code for the other exercices.
 * [Live demo of a solution can be found here](https://tolokoban.github.io/sliding-puzzle-slider).
 * [Answers can be found here](ANSWERS.md).
 
+You can use [http://scratchpad.io](http://scratchpad.io) to share code with the candidate.
 
 ## Adding DIVs
 
