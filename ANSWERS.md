@@ -173,4 +173,4 @@ Promise.all([logoLoader, gridLoader]).then(start)
 
 ## Solving the game
 
-You can use the A-* algorithm with manhattan distance as an heuristic.
+You can use the A-* algorithm with the manhattan distance as an heuristic.
