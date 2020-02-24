@@ -1,4 +1,8 @@
 # sliding-puzzle-slider
+
+[Answers can be found here](ANSWERS.md).
+
+
 ## Adding DIVs
 
 You start with this code in the body of your HTML page:
