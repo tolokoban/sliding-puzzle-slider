@@ -9,5 +9,6 @@ You start with this code in the body of your HTML page:
 Could you provide a function called `createCells()` that will add 15 DIVs to the __grid__ and return an array of them?
 The text content of the first cell will be "1", the content of the second "2", etc.
 
+## Styling the grid
 
 
