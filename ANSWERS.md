@@ -54,13 +54,13 @@ function createCells() {
 
 ### Advanced
 
-```css
 #grid {
   border: 2px solid #864;
   border-radius: 4px;
 }
 
 #grid::before {
+  z-index: -1;
   content: ".";
   font-size: 0;
   position: absolute;
@@ -69,12 +69,21 @@ function createCells() {
   height: 176px;
   margin: -24px;
   padding: 0;
-  background: #cba;
-  box-shadow: 0 4px 16px #000a;
-  z-index: -1;
+  background: linear-gradient(to top,#cba,#420);
 }
-```
 
+#grid::after {
+  z-index: 1;
+  content: ".";
+  font-size: 0;
+  position: absolute;
+  width: 376px;
+  margin: 0;
+  height: 176px; 
+  transform: translate(-176px,-100px);
+  border-radius: 100%;
+  background: #fff6;
+}
 ## Moving cells
 
 ```js
