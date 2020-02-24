@@ -7,9 +7,8 @@ That's why we will just ask the candidate to quickly explain how he would solve 
 Then we will ask him to choose two exercices (or less if the time is missing) and to write down a solution in [JSFiddle](https://jsfiddle.net).
 We will then provide the code for the other exercices.
 
-[Live demo of a solution can be found here](https://tolokoban.github.io/sliding-puzzle-slider).
-
-[Answers can be found here](ANSWERS.md).
+* [Live demo of a solution can be found here](https://tolokoban.github.io/sliding-puzzle-slider).
+* [Answers can be found here](ANSWERS.md).
 
 
 ## Adding DIVs
