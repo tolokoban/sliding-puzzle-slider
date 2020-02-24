@@ -13,15 +13,16 @@ The text content of the first cell will be "1", the content of the second "2", e
 
 ### Simple
 
-Could write the CSS code to get this result?
+Could write the CSS code to get this result? You are not allowed to change the DOM.
 
 ![style-1.png](style-1.png)
 
 ### Transitions
 
 
+
 ### Advanced
 
-Could write the CSS code to get this result?
+Could write the CSS code to get this result? You are not allowed to change the DOM.
 
 ![style-2.png](style-2.png)
