@@ -1,0 +1,22 @@
+{
+  "name": "sliding-puzzle-slider",
+  "version": "1.0.0",
+  "description": "You start with this code in the body of your HTML page: ```html <div id=\"grid\"></div> ```",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "gh-pages solution"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tolokoban/sliding-puzzle-slider.git"
+  },
+  "author": "Tolokoban <contact@tolokoban.org> (http://twitter.com/tolokoban)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tolokoban/sliding-puzzle-slider/issues"
+  },
+  "homepage": "https://github.com/tolokoban/sliding-puzzle-slider#readme",
+  "dependencies": {
+    "gh-pages": "^2.2.0"
+  }
+}
