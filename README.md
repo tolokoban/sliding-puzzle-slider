@@ -11,4 +11,17 @@ The text content of the first cell will be "1", the content of the second "2", e
 
 ## Styling the grid
 
+### Simple
 
+Could write the CSS code to get this result?
+
+![style-1.png](style-1.png)
+
+### Transitions
+
+
+### Advanced
+
+Could write the CSS code to get this result?
+
+![style-2.png](style-2.png)
