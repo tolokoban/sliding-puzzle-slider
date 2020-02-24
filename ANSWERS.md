@@ -15,3 +15,27 @@ function createCells() {
 }
 ```
 
+## Styling the grid
+
+### Simple
+
+```css
+#grid {
+}
+```
+
+### Transitions
+
+```css
+#grid {
+}
+```
+
+
+### Advanced
+
+```css
+#grid {
+}
+```
+
