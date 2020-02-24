@@ -11,17 +11,9 @@ The text content of the first cell will be "1", the content of the second "2", e
 
 ## Styling the grid
 
-### Simple
-
 Could write the CSS code to get this result? You are not allowed to change the DOM.
 
 ![style-1.png](style-1.png)
-
-### Advanced
-
-Could write the CSS code to get this result? You are not allowed to change the DOM.
-
-![style-2.png](style-2.png)
 
 ## Moving cells
 
@@ -30,3 +22,12 @@ Could you write a function `move(cell, row, col)` that will __translate__ the ce
 * `row` and `col` are integers between 0 and 3 included.
 * you must use inline styling.
 
+## Advanced styling
+
+Could write the CSS code to get this result? You are not allowed to change the DOM.
+
+![style-2.png](style-2.png)
+
+## Promise
+
+Could you write the function `loadImage(url)` which will return a __Promise__ resolving in a HTMLImageElement?
