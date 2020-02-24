@@ -26,6 +26,8 @@ Could you write a function `move(cell, row, col)` that will __translate__ the ce
 
 Could you write the function `setUp(cells)` to put each cell in its position using `move(cell, row, col)`?
 
+|    |    |    |    |
+|:--:|:--:|:--:|:--:|
 |  0 |  1 |  2 |  3 |
 |  4 |  5 |  6 |  7 |
 |  8 |  9 | 10 | 11 |
