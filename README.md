@@ -24,7 +24,7 @@ Could you write a function `move(cell, row, col)` that will __translate__ the ce
 
 ## Advanced styling
 
-Could write the CSS code to get this result? You are not allowed to change the DOM.
+Could write the CSS code to get this result? You are not allowed to change the DOM, nor to use images.
 
 ![style-2.png](style-2.png)
 
