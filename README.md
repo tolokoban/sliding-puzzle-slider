@@ -1,5 +1,7 @@
 # sliding-puzzle-slider
 
+[Live demo of a solution can be found here](https://tolokoban.github.io/sliding-puzzle-slider).
+
 [Answers can be found here](ANSWERS.md).
 
 
