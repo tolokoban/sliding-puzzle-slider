@@ -3,13 +3,13 @@
 
 ```js
 function createCells() {
-	const grid = document.getElementById('grid')
+  const grid = document.getElementById('grid')
   const cells = []
-  for (let i = 1; i < 16; i++) {
+  for (let i = 0; i < 15; i++) {
   	const cell = document.createElement('div')
     cell.textContent = i
     grid.appendChild(cell)
-    cells.push(grid)
+    cells.push(cell)
   }
   return cells
 }
@@ -78,8 +78,8 @@ function createCells() {
 ## Moving cells
 
 ```js
-move(cell, row, col) {
-
+function move(cell, row, col) {
+  cell.style.transform = `translate(${col * 32}px,${row * 32}px)`
 }
 ```
 
