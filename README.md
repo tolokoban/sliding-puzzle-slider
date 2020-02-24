@@ -17,12 +17,16 @@ Could write the CSS code to get this result? You are not allowed to change the D
 
 ![style-1.png](style-1.png)
 
-### Transitions
-
-
-
 ### Advanced
 
 Could write the CSS code to get this result? You are not allowed to change the DOM.
 
 ![style-2.png](style-2.png)
+
+## Moving cells
+
+Right now all the cells are overlapping into the upper-left corner.
+Could you write a function `move(cell, row, col)` that will __translate__ the cell to the given position `(row, col)`?
+* `row` and `col` are integers between 0 and 3 included.
+* you must use inline styling.
+
