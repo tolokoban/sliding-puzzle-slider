@@ -1,7 +1,16 @@
 # sliding-puzzle-slider
 
-[Answers can be found here](ANSWERS.md).
+This is an exercize to evaluate Front-End candidates on-site.
 
+Of course, doing the whole exercize would take too much time.
+That's why we will just ask the candidate to quickly explain how he would solve each sub-problem.
+Then we will ask him to choose two exercices (or less if the time is missing) and to write down a solution in [JSFiddle](https://jsfiddle.net).
+We will then provide the code for the other exercices.
+
+* [Live demo of a solution can be found here](https://tolokoban.github.io/sliding-puzzle-slider).
+* [Answers can be found here](ANSWERS.md).
+
+You can use [http://scratchpad.io](http://scratchpad.io) to share code with the candidate.
 
 ## Adding DIVs
 
@@ -11,7 +20,7 @@ You start with this code in the body of your HTML page:
 ```
 
 Could you provide a function called `createCells()` that will add 15 DIVs to the __grid__ and return an array of them?
-The text content of the first cell will be "1", the content of the second "2", etc.
+The text content of the first cell will be "0", the content of the second "1", etc.
 
 ## Styling the grid
 
