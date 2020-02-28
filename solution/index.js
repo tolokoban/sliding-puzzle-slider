@@ -1,8 +1,8 @@
 "use strict"
 
 window.addEventListener('DOMContentLoaded', (event) => {
-    const LOGO = 'https://raw.githubusercontent.com/tolokoban/sliding-puzzle-slider/master/epfl.png'
-    const GRID = 'https://raw.githubusercontent.com/tolokoban/sliding-puzzle-slider/master/grid.png'
+    const LOGO = 'epfl.png'
+    const GRID = 'grid.png'
 
     const cells = createCells()
 
@@ -116,7 +116,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 
     function shuffle(arr) {
-        for (let i = 0; i < 1000; i++) {
+        for (let i = 0; i < 15; i++) {
             const candidates = getCandidates()
             const candidate = candidates[Math.floor(Math.random() * candidates.length)]
             slideCell(candidate)
@@ -133,6 +133,11 @@ window.addEventListener('DOMContentLoaded', (event) => {
         button.addEventListener('click', () => {
             if (tasks.length > 0) return
             shuffle()
+        })
+        const btnSolve = document.getElementById('btnSolve')
+        btnSolve.addEventListener('click', () => {
+            if (tasks.length > 0) return
+            solve()
         })
         const grid = document.getElementById('grid')
         grid.style.background = `url(${GRID})`
@@ -156,8 +161,39 @@ window.addEventListener('DOMContentLoaded', (event) => {
     }
 
     function solve() {
-        tasks = []
-        //const fringe
+        let solution = findSolution()
+        while (solution && typeof solution.move !== 'undefined') {
+            tasks.unshift(solution.move)
+            solution = solution.parent
+        }
+        console.info("tasks=", tasks)
+        animSolving()
+    }
+
+    function animSolving() {
+        if (tasks.length === 0) return
+        const task = tasks.shift()
+        for (const cell of cells) {
+            if (task === cell.$col + 4 * cell.$row) {
+                slideCell(cell)
+                refresh()
+                break
+            }
+        }
+        window.setTimeout(animSolving, 300)
+    }
+
+    function findSolution() {
+        const fringe = getFringe()
+        console.info("fringe=", fringe)
+        while (fringe.length > 0) {
+            const board = findBestBoard(fringe)
+            if (board.h === 0) {
+                console.info("Solution=", board)
+                return board
+            }
+            fringe.push(...board.getCandidates())
+        }
     }
 
     function onCellClick(evt) {
@@ -165,4 +201,124 @@ window.addEventListener('DOMContentLoaded', (event) => {
         slideCell(evt.target)
         refresh()
     }
+
+    function getFringe() {
+        const grid = [-1,-1,-1,-1, -1,-1,-1,-1, -1,-1,-1,-1, -1,-1,-1,-1]
+        for (const cell of cells) {
+            if (!cell) continue
+            const idx = cell.$col + 4 * cell.$row
+            grid[idx] = cell.$idx
+        }
+
+        const board = new Board(grid)
+        return board.getCandidates()
+    }
 })
+
+
+const ALPHABET = "*ABCDEFGHIJKLMNO"
+
+class Board {
+    constructor(parent, from, to) {
+        if (Array.isArray(parent)) {
+            this.parent = null
+            this.grid = parent
+            this.f = 0
+        } else {
+            this.parent = parent
+            this.grid = parent.grid.slice()
+            const tmp = this.grid[from]
+            this.grid[from] = this.grid[to]
+            this.grid[to] = tmp
+            this.f = parent.f + 1
+            this.move = from
+        }
+        this.h = computeHeuristic(this.grid)
+        this.g = this.f + this.h
+        this.key = this.grid.map(i => ALPHABET.charAt(i + 1)).join("")
+    }
+
+    getCandidates() {
+        const grid = this.grid
+        let hole = 0
+        while (hole < 16) {
+            if (grid[hole] === -1) break
+            hole++
+        }
+        const col = hole & 3
+        const row = hole >> 2
+
+        const candidates = []
+        if (col > 0) {
+            const candidate = new Board(this, (col - 1) + 4 * row, hole)
+            if (!hasLoop(this.parent, candidate.key)) {
+                candidates.push(candidate)
+            }
+        }
+        if (col < 3) {
+            const candidate = new Board(this, (col + 1) + 4 * row, hole)
+            if (!hasLoop(this.parent, candidate.key)) {
+                candidates.push(candidate)
+            }
+        }
+        if (row > 0) {
+            const candidate = new Board(this, col + 4 * (row - 1), hole)
+            if (!hasLoop(this.parent, candidate.key)) {
+                candidates.push(candidate)
+            }
+        }
+        if (row < 3) {
+            const candidate = new Board(this, col + 4 * (row + 1), hole)
+            if (!hasLoop(this.parent, candidate.key)) {
+                candidates.push(candidate)
+            }
+        }
+
+        return candidates
+    }
+}
+
+
+function findBestBoard(boards) {
+    let bestIndex = boards[0]
+    let bestScore = boards[0].g
+
+    for (let index = 1 ; index < boards.length ; index++) {
+        const board = boards[index]
+        if (board.g < bestScore) {
+            bestIndex = index
+            bestScore = board.g
+        }
+    }
+
+    return boards.splice(bestIndex, 1)[0]
+}
+
+
+function hasLoop(board, key) {
+    while (board) {
+        if (board.key === key) return true
+        board = board.parent
+    }
+    return false
+}
+
+
+function computeHeuristic(grid) {
+    let h = 0
+    for (let i=0 ; i<16 ; i++) {
+        const cell = grid[i]
+        if (i === cell || cell < 0) continue
+        h = h + computeManhattanDistance(i, cell)
+    }
+    return h
+}
+
+
+function computeManhattanDistance(a, b) {
+    const colA = a & 3
+    const rowA = a >> 2
+    const colB = b & 3
+    const rowB = b >> 2
+    return Math.abs(colA - colB) + Math.abs(rowA - rowB)
+}
