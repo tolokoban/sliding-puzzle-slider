@@ -1,3 +1,5 @@
+Every box should have 30% of the screen width and 40% of the height.
+
 ![debouncer.jpg](debouncer.jpg)
 
 ```
@@ -8,6 +10,8 @@
   </div>
 </section>
 ```
+
+----
 
 ```
 function createDebouncer(f, delay) {
